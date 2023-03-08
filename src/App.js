@@ -43,29 +43,26 @@ class App extends Component {
 
   displayFaceBox = (box) => {
     this.setState({ box: box });
-    
   };
 
   onInputChange = (event) => {
-    console.log(event.target.value);
-    this.setState({ imageUrl: event.target.value });
+    this.setState({ input: event.target.value });
   };
 
   onButtonSubmit = () => {
-    // this.setState({ input: this.state.imageUrl });
-    // console.log(this.state.imageUrl);
+    this.setState({ imageUrl: this.state.input });
+
     app.models
       .predict(
         {
-          // id: "face-detection",
-          // name: "face-detection",
-          // version: "6dc7e46bc9124c5c8824be4822abe105",
-          // type: "visual-detector",
-          id: 'a403429f2ddf4b49b307e318f00e528b',
-          version: '34ce21a40cc24b6b96ffee54aabff139',
+          id: 'face-detection',
+          name: 'face-detection',
+          version: '6dc7e46bc9124c5c8824be4822abe105',
+          type: 'visual-detector',
+          // id: 'a403429f2ddf4b49b307e318f00e528b',
+          // version: '34ce21a40cc24b6b96ffee54aabff139',
         },
-        // this.state.input
-        this.state.imageUrl
+        this.state.input
       )
       .then((response) => {
         console.log('hi', response);
