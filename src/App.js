@@ -77,7 +77,7 @@ class App extends Component {
     this.setState({ imageUrl: this.state.input });
 
     // Call Clarifai's face detection API to calculate location of facial regions 
-    fetch("http://localhost:3001/imageurl", {
+    fetch("https://facedetective-api.onrender.com/imageurl", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -87,7 +87,7 @@ class App extends Component {
       .then((response) => response.json()) 
       .then((response) => {
         if (response) {
-          fetch("http://localhost:3001/image", {
+          fetch("https://facedetective-api.onrender.com/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

@@ -23,7 +23,7 @@ class Register extends Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('http://localhost:3001/register', {
+    fetch('https://facedetective-api.onrender.com/register', {
       method: 'post',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({
